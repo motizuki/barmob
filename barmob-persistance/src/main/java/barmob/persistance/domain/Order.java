@@ -24,7 +24,9 @@ public class Order {
     private String status;
 
     @PersistenceConstructor
-    public Order(int id, int amount, String observation, String status) {
+    public Order(int id,Menu menu, Table table, int amount, String observation, String status) {
+        this.menu = menu;
+        this.table = table;
         this.id = id;
         this.amount = amount;
         this.observation = observation;

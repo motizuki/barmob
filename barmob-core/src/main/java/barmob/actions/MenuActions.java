@@ -5,7 +5,6 @@ import barmob.persistance.domain.MenuTypes;
 import barmob.persistance.repositories.MenuRepository;
 import barmob.persistance.domain.Menu;
 import com.mongodb.BasicDBObject;
-import com.mongodb.WriteResult;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
