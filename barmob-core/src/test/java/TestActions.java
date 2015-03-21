@@ -2,7 +2,7 @@ import barmob.CoreAppConf;
 import barmob.actions.MenuActions;
 import barmob.actions.OrderActions;
 import barmob.actions.TableActions;
-import barmob.persistance.domain.*;
+import barmob.resttypes.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -38,8 +38,9 @@ public abstract class TestActions {
         menu = menuActions.createMenu("Pasta", 45.0, true, "Cool pasta", MenuTypes.MAIN);
         idTestMenu = menu.getId();
 
-        table = tableActions.createTable(1,"123", TableStatus.FREE);
+        table = tableActions.createTable(1,"123");
         idTestTable = table.getId();
+        tableActions.startTable(idTestTable);
 
         order = orderActions.makeOrder(idTestMenu,idTestTable,1,"Testing order");
         idTestOrder = order.getId();

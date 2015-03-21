@@ -1,10 +1,10 @@
 package barmob.actions;
 
-import barmob.persistance.domain.Counters;
-import barmob.persistance.domain.MenuTypes;
+import barmob.exceptions.BarmobRestException;
+import barmob.resttypes.Counters;
+import barmob.resttypes.MenuTypes;
 import barmob.persistance.repositories.MenuRepository;
-import barmob.persistance.domain.Menu;
-import com.mongodb.BasicDBObject;
+import barmob.resttypes.Menu;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -38,12 +38,23 @@ public class MenuActions extends Action{
         return mongoTemplate.find(query(where(field).is(value).andOperator(where("id").is(menuid))), Menu.class) != null;
     }
 
-    public BasicDBObject getMenuPrice(int menuid){
-        return new BasicDBObject("price",menuRepository.getMenuById(menuid).getPrice());
+    public Menu getMenu(int menuid){
+        Menu menu = menuRepository.getMenuById(menuid);
+        if (menu != null){
+            return menu;
+        }else{
+            throw new BarmobRestException("TODO Menu not found","TODO GET MESSAGE ERROR CODE");
+        }
     }
 
     public List<Menu> getMenuType(MenuTypes type){
-        return menuRepository.getMenuByType(type.toString());
+        List<Menu> menuList = menuRepository.getMenuByType(type.toString());
+        if(menuList.size()>0){
+            return menuList;
+        }else{
+            throw new BarmobRestException("TODO no menu registered","TODO GET MESSAGE ERROR CODE");
+        }
+
     }
 
 

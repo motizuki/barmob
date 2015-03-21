@@ -1,4 +1,4 @@
-import barmob.persistance.domain.OrderStatus;
+import barmob.resttypes.OrderStatus;
 import org.junit.Test;
 
 import static org.springframework.test.util.AssertionErrors.assertTrue;
@@ -11,9 +11,9 @@ public class OrderActionsTest extends TestActions{
 
     @Test
     public void testOrderActions() {
-        assertTrue("Order progress: ", orderActions.changeOrderState(idTestOrder, OrderStatus.INPREPARATION));
-        assertTrue("Show orders by table: ", !orderActions.getOrdersByTable(idTestTable).isEmpty());
-        assertTrue("Order progress: ", orderActions.changeOrderState(idTestOrder, OrderStatus.READY));
+        assertTrue("Order progress: ", !orderActions.changeOrderState(idTestOrder, OrderStatus.INPREPARATION).isEmpty());
+        assertTrue("Show orders by table: ", !orderActions.getOrdersByStatus(OrderStatus.INPROGRESS).isEmpty());
+        assertTrue("Order progress: ", !orderActions.changeOrderState(idTestOrder, OrderStatus.READY).isEmpty());
     }
 
 }

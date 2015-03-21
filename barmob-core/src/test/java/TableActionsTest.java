@@ -10,10 +10,8 @@ public class TableActionsTest extends TestActions {
     @Test
     public void testTableActions() {
 
-        assertTrue("Start Table: ",tableActions.startTable(idTestTable));
-        assertTrue("Start Table: ", tableActions.closeTable(idTestTable));
-        assertTrue("Start Table: ", tableActions.resetTable(idTestTable));
-
+        assertTrue("Start Table: ", !tableActions.closeTable(idTestTable).isEmpty());
+        assertTrue("Start Table: ", !tableActions.resetTable(idTestTable).isEmpty());
 
     }
 

@@ -1,4 +1,4 @@
-import barmob.persistance.domain.MenuTypes;
+import barmob.resttypes.MenuTypes;
 import org.junit.Test;
 
 import static org.springframework.test.util.AssertionErrors.assertEquals;
@@ -10,9 +10,9 @@ public class MenuActionsTest extends TestActions{
 
     @Test
     public void testMenuActions() {
-        assertEquals("Testing getMenuPrice: ", 15.0, menuActions.getMenuPrice(23).getDouble("price")) ;
+        assertEquals("Testing getMenuPrice: ", 45.0, menuActions.getMenu(idTestMenu).getPrice()) ;
         System.out.println(menuActions.getMenuType(MenuTypes.MAIN).toString());
-        assertEquals("Testing updateMenu: ", true, menuActions.updateMenu(23, "availability", false));
+        assertEquals("Testing updateMenu: ", true, menuActions.updateMenu(idTestMenu, "availability", false));
     }
 
 
