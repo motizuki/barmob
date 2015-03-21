@@ -1,4 +1,4 @@
-package barmob.persistance.domain;
+package barmob.resttypes;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
@@ -14,13 +14,15 @@ public class Table {
     private int id;
 
     private int tableNumber;
+    private int clientId;
     private String password;
     private String status;
 
     @PersistenceConstructor
-    public Table(int id, int tableNumber, String password, String status) {
+    public Table(int id, int tableNumber,int clientId, String password, String status) {
         this.id = id;
         this.tableNumber = tableNumber;
+        this.clientId = clientId;
         this.password = password;
         this.status = status;
     }
@@ -35,6 +37,14 @@ public class Table {
 
     public void setTableNumber(int tableNumber) {
         this.tableNumber = tableNumber;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     public String getPassword() {

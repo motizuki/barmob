@@ -1,4 +1,4 @@
-package barmob.persistance.domain;
+package barmob.resttypes;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
@@ -19,14 +19,16 @@ public class Order {
     @DBRef
     private Table table;
 
+    private int clientId;
     private int amount;
     private String observation;
     private String status;
 
     @PersistenceConstructor
-    public Order(int id,Menu menu, Table table, int amount, String observation, String status) {
+    public Order(int id,Menu menu, Table table, int clientId, int amount, String observation, String status) {
         this.menu = menu;
         this.table = table;
+        this.clientId = clientId;
         this.id = id;
         this.amount = amount;
         this.observation = observation;
@@ -51,6 +53,14 @@ public class Order {
 
     public void setTable(Table table) {
         this.table = table;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     public int getAmount() {

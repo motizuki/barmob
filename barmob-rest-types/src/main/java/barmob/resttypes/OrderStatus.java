@@ -1,4 +1,4 @@
-package barmob.persistance.domain;
+package barmob.resttypes;
 
 /**
  * Created by gustavokm90 on 3/17/15.

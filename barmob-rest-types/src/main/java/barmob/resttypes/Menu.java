@@ -1,4 +1,4 @@
-package barmob.persistance.domain;
+package barmob.resttypes;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
@@ -49,7 +49,7 @@ public class Menu {
         this.price = price;
     }
 
-    public boolean isAvailability() {
+    public boolean getAvailability() {
         return availability;
     }
 
