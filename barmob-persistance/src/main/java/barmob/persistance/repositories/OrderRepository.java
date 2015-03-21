@@ -1,6 +1,6 @@
 package barmob.persistance.repositories;
 
-import barmob.persistance.domain.Order;
+import barmob.resttypes.Order;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.RepositoryDefinition;
@@ -15,10 +15,10 @@ import java.util.List;
 public interface OrderRepository extends MongoRepository<Order, String>{
 
     public Order getOrderById(int id);
-    @Query(value="{ 'table.$id' : ?0 }", fields="{ 'id' : 1, 'menu' : 1, 'table': 1, 'amount': 1, 'observation': 1, 'status':1}")
+    @Query(value="{ 'clientId' : ?0 }", fields="{ 'id' : 1, 'menu' : 1, 'table': 1,'clientId': 1, 'amount': 1, 'observation': 1, 'status':1}")
     public List<Order> getOrdersByTable(int id);
-    @Query(value="{ 'menu.$id' : ?0 }", fields="{ 'id' : 1, 'menu' : 1, 'table': 1, 'amount': 1, 'observation': 1, 'status':1}")
-    public List<Order> getOrderByMenu(int id);
+    @Query(value="{ 'status' : ?0 }", fields="{ 'id' : 1, 'menu' : 1, 'table': 1,'clientId': 1, 'amount': 1, 'observation': 1, 'status':1}")
+    public List<Order> getOrderByStatus(String status);
 
 
 }

@@ -1,6 +1,6 @@
 package barmob.persistance.repositories;
 
-import barmob.persistance.domain.Counters;
+import barmob.resttypes.Counters;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.RepositoryDefinition;

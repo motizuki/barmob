@@ -1,6 +1,6 @@
 package barmob.persistance.repositories;
 
-import barmob.persistance.domain.Table;
+import barmob.resttypes.Table;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.RepositoryDefinition;
 

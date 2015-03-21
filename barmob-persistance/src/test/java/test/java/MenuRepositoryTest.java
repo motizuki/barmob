@@ -1,8 +1,9 @@
 package test.java;
 
 import barmob.persistance.PersistanceAppConf;
-import barmob.persistance.domain.Menu;
+
 import barmob.persistance.repositories.MenuRepository;
+import barmob.resttypes.Menu;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
