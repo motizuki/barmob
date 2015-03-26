@@ -17,6 +17,7 @@
         <maven.enforcer.plugin>1.2</maven.enforcer.plugin>
         <maven.version.range>[2.2.1,3.3.3)</maven.version.range>
         <mongoJavaDriver.version>2.13.0</mongoJavaDriver.version>
+        <commonLang3.version>3.3.2</commonLang3.version>
         <springDataMongoDB.version>1.6.2.RELEASE</springDataMongoDB.version>
     </properties>
     <dependencyManagement>
@@ -33,6 +34,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
         
@@ -91,6 +98,12 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-access</artifactId>
             <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commonLang3.version}</version>
         </dependency>
     </dependencies>
     </dependencyManagement>

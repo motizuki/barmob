@@ -14,7 +14,7 @@
         <module>barmob-rest-types</module>
         <module>barmob-persistance</module>
         <module>barmob-core</module>
-        <module>barmob-rest-service</module>
+        <module>barmob-service-app</module>
     </modules>
 
 </project>
