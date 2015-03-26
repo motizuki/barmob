@@ -15,6 +15,7 @@ import barmob.persistance.PersistanceAppConf;
 @Import({PersistanceAppConf.class})
 public class CoreAppConf {
 
+
     private static final Logger logger = LoggerFactory.getLogger(CoreAppConf.class);
 
 }

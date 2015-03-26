@@ -21,6 +21,7 @@ import java.util.List;
 @RequestMapping(value = "/restful")
 public class RestfulController {
 
+    //Business objects
     private final MenuActions menuActions = new MenuActions();
     private final TableActions tableActions = new TableActions();
     private final OrderActions orderActions = new OrderActions();
@@ -33,6 +34,10 @@ public class RestfulController {
 
     /*
     * Menu REST mapping
+    *
+    * Controller should performs little or no processing itself and instead delegates
+    * responsibility for the business logic to one or more service objects. Thus we have
+    * created objects to handle the business logic.
     * */
 
     @RequestMapping(value = "/menu/type/{type}", method = RequestMethod.GET)
