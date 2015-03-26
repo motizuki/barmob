@@ -12,12 +12,6 @@
 
     <context:component-scan base-package="controllers" />
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/pages/" />
-        <property name="suffix" value=".html" />
-    </bean>
-
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:resources mapping="/pages/**" location="/WEB-INF/pages/" />
     <mvc:default-servlet-handler />
