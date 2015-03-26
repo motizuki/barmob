@@ -9,7 +9,6 @@
         <artifactId>barmob-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>barmob</groupId>
     <artifactId>barmob-rest-types</artifactId>
     <version>1.0-SNAPSHOT</version>
 
