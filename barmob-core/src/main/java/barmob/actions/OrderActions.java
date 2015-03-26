@@ -56,6 +56,15 @@ public class OrderActions extends Action{
         }
     }
 
+    public Order getOrderById(int id){
+        Order order = orderRepository.getOrderById(id);
+        if (order!=null){
+            return order;
+        }else{
+            throw new BarmobRestException("TODO no orders registered for the clientId","TODO GET MESSAGE ERROR CODE");
+        }
+    }
+
     public List<Order> getOrdersByStatus(OrderStatus orderStatus){
         List<Order> orderList = orderRepository.getOrderByStatus(orderStatus.toString());
         if (!orderList.isEmpty()){

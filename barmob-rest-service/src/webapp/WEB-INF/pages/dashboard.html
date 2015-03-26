@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Dashboard Barmob</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="../resources/javascripts/barmob-dashboard.js"></script>
+</head>
+<body onLoad="updateTables();">
+
+<style>
+    body { font-size: 62.5%; }
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#reportDiv table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#reportDiv table td, div#reportDiv table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+</style>
+
+<div class="header radius3">
+    <div class="headerinner">
+        <center><h2><font color="white">Barmob Dashboard</font></h2></center>
+
+    </div>
+</div>
+
+
+<div id="dialog-confirm" title="Table Details">
+    <div id="users-contain" class="ui-widget">
+
+    </div>
+
+</div>
+<div style="margin: 0 50px 0 50px;">
+    <div id="tabs" style="width: 100%; height: auto; display: table;">
+        <ul>
+            <li><a href="#tabs-1">Dashboard Tables and Orders</a></li>
+            <li><a href="#tabs-2">Menu Management</a></li>
+            <li><a href="#tabs-3">Reports and Statistics</a></li>
+        </ul>
+
+        <div id="tabs-1">
+
+
+            <div class="maincontentinner" id="tableDiv">
+
+
+            </div>
+            <!--content-->
+
+
+        </div>
+
+        <div id="tabs-2">
+
+
+            <div id="dialog-form" title="TODO">
+
+            </div>
+
+        </div>
+
+        <div id="tabs-3">
+            <center>
+                <select id="reportDropdown">
+                    <option value="inprogress">Orders in progress</option>
+                    <option value="inpreparation">Orders in preparation</option>
+                    <option value="ready">Orders ready</option>
+                </select><button onClick="report( $('#reportDropdown').val());">Report</button>
+            </center>
+            <br>
+
+            <div id="reportDiv">
+
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

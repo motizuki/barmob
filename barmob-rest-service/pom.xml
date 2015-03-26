@@ -12,6 +12,7 @@
 
     <artifactId>barmob-rest-service</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <dependencies>
 
@@ -42,17 +43,6 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.1.5.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>1.2.2.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>1.2.2.RELEASE</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -60,6 +50,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.2.2.RELEASE</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <webappDirectory>src/webapp/</webappDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </build>

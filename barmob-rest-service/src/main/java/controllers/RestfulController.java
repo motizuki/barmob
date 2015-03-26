@@ -7,7 +7,7 @@ import barmob.resttypes.*;
 import barmob.exceptions.BarmobRestException;
 import org.apache.commons.lang3.text.WordUtils;
 import org.springframework.web.bind.annotation.*;
-import types.ErrorTemplate;
+import barmob.templates.ErrorTemplate;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -18,11 +18,13 @@ import java.util.List;
  * Created by gustavokm90 on 3/19/15.
  */
 @RestController
+@RequestMapping(value = "/restful")
 public class RestfulController {
 
     private final MenuActions menuActions = new MenuActions();
     private final TableActions tableActions = new TableActions();
     private final OrderActions orderActions = new OrderActions();
+
 
     @ExceptionHandler(BarmobRestException.class)
     public ErrorTemplate handleErrors(BarmobRestException ex) {
@@ -62,6 +64,16 @@ public class RestfulController {
         }
         return jsonResp;
     }
+
+    @RequestMapping(value = "/menu/type", method = RequestMethod.GET)
+    public HashMap<String,String> getMenuTypes() throws BarmobRestException {
+        HashMap<String,String> jsonResp = new HashMap<String, String>();
+        for (MenuTypes a : MenuTypes.values()){
+            jsonResp.put(a.ordinal()+"", a.toString());
+        }
+        return jsonResp;
+    }
+
 
     /*
     * Table REST mapping
@@ -117,20 +129,25 @@ public class RestfulController {
     }
 
     @RequestMapping(value = "/order/{id}/{status}", method = RequestMethod.GET)
-    public HashMap<String,String> changeOrderStatus(@PathVariable(value="id") int id, @PathVariable(value="id") String status) throws BarmobRestException {
+    public HashMap<String,String> changeOrderStatus(@PathVariable(value="id") int id, @PathVariable(value="status") String status) throws BarmobRestException {
         OrderStatus orderStatus;
         try {
             orderStatus = OrderStatus.valueOf(status.toUpperCase());
         } catch (IllegalArgumentException e){
             throw new BarmobRestException("TODO - INPUT VALIDATION ERROR CODE ENUM", "TODO GET MESSAGE ERROR CODE");
         }
-        return orderActions.changeOrderState(id,orderStatus);
+        return orderActions.changeOrderState(id, orderStatus);
 
     }
 
     @RequestMapping(value = "/order/client/{id}", method = RequestMethod.GET)
     public List<Order> getOrderByClient(@PathVariable(value="id") int id) throws BarmobRestException {
         return orderActions.getOrdersByClient(id);
+    }
+
+    @RequestMapping(value = "/order/{id}", method = RequestMethod.GET)
+    public Order getOrderById(@PathVariable(value="id") int id) throws BarmobRestException {
+        return orderActions.getOrderById(id);
     }
 
     @RequestMapping(value = "/order/status/{status}", method = RequestMethod.GET)
